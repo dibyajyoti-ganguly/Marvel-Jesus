@@ -7,10 +7,16 @@ const useCharacters = () => {
 
   const ts = Date.now();
 
+  const hash = md5(ts + privateKey + publicKey);
+
+  const randomOffset = Math.floor(Math.random() * 1000);
+
   const params = new URLSearchParams({
     ts: ts,
+    limit: 30,
+    offset: randomOffset,
     apikey: publicKey,
-    hash: md5(ts + privateKey + publicKey), // Generate hash for authentication
+    hash: hash,
   });
 
   const endpoint = `${apiBaseURL}/characters?`;
