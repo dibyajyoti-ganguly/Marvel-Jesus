@@ -9,12 +9,9 @@ const useCharacters = () => {
 
   const hash = md5(ts + privateKey + publicKey);
 
-  const randomOffset = Math.floor(Math.random() * 1000);
-
   const params = new URLSearchParams({
     ts: ts,
-    limit: 30,
-    offset: randomOffset,
+    limit: 54,
     apikey: publicKey,
     hash: hash,
   });
@@ -27,7 +24,11 @@ const useCharacters = () => {
     fetch(url)
       .then((response) => response.json())
       .then((data) => {
-        setCharacterlist(data.data.results);
+        const filteredCharacters = data.data.results.filter(
+          (character) =>
+            !character.thumbnail.path.includes("image_not_available")
+        );
+        setCharacterlist(filteredCharacters);
       })
       .catch((error) => {
         // Handle any errors that occur during the API request
