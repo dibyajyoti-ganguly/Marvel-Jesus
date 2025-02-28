@@ -29,6 +29,7 @@ const useCharacters = () => {
             !character.thumbnail.path.includes("image_not_available")
         );
         setCharacterlist(filteredCharacters);
+        console.log(filteredCharacters);
       })
       .catch((error) => {
         // Handle any errors that occur during the API request
