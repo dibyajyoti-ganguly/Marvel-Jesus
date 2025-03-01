@@ -25,6 +25,7 @@
   },
   "dependencies": {
     "@tailwindcss/postcss": "^4.0.8",
+    "framer-motion": "^12.4.7",
     "md5": "^2.3.0",
     "postcss": "^8.5.3",
     "react": "^19.0.0",
