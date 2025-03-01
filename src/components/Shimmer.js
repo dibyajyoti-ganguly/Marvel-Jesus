@@ -1,26 +1,20 @@
-const Shimmer = () => {
+import { useState, useEffect } from "react";
+
+const Shimmer = ({ data }) => {
+  const [test, setTest] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTest((prevTest) => (data == null ? prevTest + 13 : 100));
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, [data]);
+
   return (
-    <div className="flex flex-wrap mt-8">
-      <div className="shimmer-card"></div>
-      <div className="shimmer-card"></div>
-      <div className="shimmer-card"></div>
-      <div className="shimmer-card"></div>
-      <div className="shimmer-card"></div>
-      <div className="shimmer-card"></div>
-      <div className="shimmer-card"></div>
-      <div className="shimmer-card"></div>
-      <div className="shimmer-card"></div>
-      <div className="shimmer-card"></div>
-      <div className="shimmer-card"></div>
-      <div className="shimmer-card"></div>
-      <div className="shimmer-card"></div>
-      <div className="shimmer-card"></div>
-      <div className="shimmer-card"></div>
-      <div className="shimmer-card"></div>
-      <div className="shimmer-card"></div>
-      <div className="shimmer-card"></div>
-      <div className="shimmer-card"></div>
-      <div className="shimmer-card"></div>
+    <div>
+      <progress value={test} max={100} />
+      <p>{test}%</p>
     </div>
   );
 };
