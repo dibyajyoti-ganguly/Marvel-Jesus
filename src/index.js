@@ -3,6 +3,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { App } from "./App";
 import Body from "./components/Body";
 import Comics from "./components/Comics";
+import Movies from "./components/Movies";
 import Errorcomp from "./components/Errorcomp";
 
 const appRouter = createBrowserRouter([
@@ -19,8 +20,8 @@ const appRouter = createBrowserRouter([
         element: <Comics />,
       },
       {
-        path: "/news",
-        element: <Body />,
+        path: "/movies",
+        element: <Movies />,
       },
     ],
     errorElement: <Errorcomp />,

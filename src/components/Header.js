@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Logo from "../images/logo.png";
 
 const Header = () => {
@@ -8,11 +9,17 @@ const Header = () => {
     >
       <img src={Logo} className="w-32 mb-0.5" />
       <ul className="w-1/2 flex flex-row justify-between">
-        <li>CHARACTERS</li>
+        <Link to="/">
+          <li>CHARACTERS</li>
+        </Link>
         <li>NEWS</li>
         <li>GAMES</li>
-        <li>COMICS</li>
-        <li>MOVIES</li>
+        <Link to="/comics">
+          <li>COMICS</li>
+        </Link>
+        <Link to="/movies">
+          <li>MOVIES</li>
+        </Link>
       </ul>
     </div>
   );
