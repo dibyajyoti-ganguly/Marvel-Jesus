@@ -1,7 +1,20 @@
+import md5 from "md5";
+
 const publicKey = process.env.REACT_APP_API_KEY_ONE;
 
 const privateKey = process.env.REACT_APP_API_KEY_TWO;
 
 const apiBaseURL = "https://gateway.marvel.com/v1/public";
 
-export { publicKey, privateKey, apiBaseURL };
+const ts = Date.now();
+
+const hash = md5(ts + privateKey + publicKey);
+
+const params = new URLSearchParams({
+  ts: ts,
+  limit: 56,
+  apikey: publicKey,
+  hash: hash,
+});
+
+export { publicKey, privateKey, apiBaseURL, params };

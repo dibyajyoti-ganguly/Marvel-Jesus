@@ -2,6 +2,7 @@ import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { App } from "./App";
 import Body from "./components/Body";
+import Comics from "./components/Comics";
 import Errorcomp from "./components/Errorcomp";
 
 const appRouter = createBrowserRouter([
@@ -15,7 +16,7 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "/comics",
-        element: <Body />,
+        element: <Comics />,
       },
       {
         path: "/news",

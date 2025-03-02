@@ -1,20 +1,8 @@
-import { apiBaseURL, privateKey, publicKey } from "./constants";
-import md5 from "md5";
+import { apiBaseURL, params } from "./constants";
 import { useEffect, useState } from "react";
 
 const useCharacters = () => {
   const [characterList, setCharacterlist] = useState(null);
-
-  const ts = Date.now();
-
-  const hash = md5(ts + privateKey + publicKey);
-
-  const params = new URLSearchParams({
-    ts: ts,
-    limit: 54,
-    apikey: publicKey,
-    hash: hash,
-  });
 
   const endpoint = `${apiBaseURL}/characters?`;
 
@@ -26,7 +14,8 @@ const useCharacters = () => {
       .then((data) => {
         const filteredCharacters = data.data.results.filter(
           (character) =>
-            !character.thumbnail.path.includes("image_not_available")
+            !character.thumbnail.path.includes("image_not_available") &&
+            !character.name.toLowerCase().includes("angela")
         );
         setCharacterlist(filteredCharacters);
         console.log(filteredCharacters);
