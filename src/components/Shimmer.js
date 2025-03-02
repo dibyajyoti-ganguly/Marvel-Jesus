@@ -5,7 +5,7 @@ const Shimmer = ({ data }) => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setTest((prevTest) => (data == null ? prevTest + 10 : 100));
+      setTest((prevTest) => (data == null ? prevTest + 15 : 100));
     }, 1000);
 
     return () => clearInterval(interval);
