@@ -10,11 +10,18 @@ const ts = Date.now();
 
 const hash = md5(ts + privateKey + publicKey);
 
-const params = new URLSearchParams({
+const params1 = new URLSearchParams({
   ts: ts,
   limit: 56,
   apikey: publicKey,
   hash: hash,
 });
 
-export { publicKey, privateKey, apiBaseURL, params };
+const params2 = new URLSearchParams({
+  ts: ts,
+  limit: 54,
+  apikey: publicKey,
+  hash: hash,
+});
+
+export { publicKey, privateKey, apiBaseURL, params1, params2 };
