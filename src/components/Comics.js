@@ -8,7 +8,7 @@ const Comics = () => {
   return comicList == null ? (
     <Shimmer data={comicList} />
   ) : (
-    <div className="flex flex-wrap mb-4 mx-24 mt-16 justify-between">
+    <div className="flex flex-wrap mb-4 mx-24 mt-16 justify-evenly">
       {comicList.map((comic) => (
         <ComiCard key={comic.id} data={comic} />
       ))}

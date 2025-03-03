@@ -1,4 +1,4 @@
-import { apiBaseURL, params } from "./constants";
+import { apiBaseURL, params2 } from "./constants";
 import { useEffect, useState } from "react";
 
 const useComics = () => {
@@ -6,14 +6,17 @@ const useComics = () => {
 
   const endpoint = `${apiBaseURL}/comics?`;
 
-  const url = endpoint + params;
+  const url = endpoint + params2;
 
   useEffect(() => {
     fetch(url)
       .then((response) => response.json())
       .then((data) => {
         const filteredComics = data.data.results.filter(
-          (comic) => !comic.thumbnail.path.includes("image_not_available")
+          (comic) =>
+            !comic.thumbnail.path.includes("image_not_available") &&
+            comic.creators.items.length != 0 &&
+            !comic.title.toLowerCase().includes("ant-man (2003) #3")
         );
         setComiclist(filteredComics);
         console.log(filteredComics);

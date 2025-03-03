@@ -1,4 +1,4 @@
-import { apiBaseURL, params } from "./constants";
+import { apiBaseURL, params1 } from "./constants";
 import { useEffect, useState } from "react";
 
 const useCharacters = () => {
@@ -6,7 +6,7 @@ const useCharacters = () => {
 
   const endpoint = `${apiBaseURL}/characters?`;
 
-  const url = endpoint + params;
+  const url = endpoint + params1;
 
   useEffect(() => {
     fetch(url)
