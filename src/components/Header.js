@@ -8,12 +8,10 @@ const Header = () => {
     text-lg subpixel-antialiased tracking-wider font-black"
     >
       <img src={Logo} className="w-32 mb-0.5" />
-      <ul className="w-1/2 flex flex-row justify-between">
+      <ul className="w-1/2 flex flex-row justify-around">
         <Link to="/">
           <li>CHARACTERS</li>
         </Link>
-        <li>NEWS</li>
-        <li>GAMES</li>
         <Link to="/comics">
           <li>COMICS</li>
         </Link>

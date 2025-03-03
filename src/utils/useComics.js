@@ -19,7 +19,6 @@ const useComics = () => {
         console.log(filteredComics);
       })
       .catch((error) => {
-        // Handle any errors that occur during the API request
         console.error(error);
       });
   }, []);
