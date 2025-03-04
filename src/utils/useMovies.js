@@ -1,4 +1,3 @@
-import { param } from "framer-motion/client";
 import { useEffect, useState } from "react";
 
 const useMovies = () => {
@@ -6,7 +5,7 @@ const useMovies = () => {
 
   const endpoint = "https://mcuapi.herokuapp.com/api/v1/movies";
 
-  const params = "?&limit=35";
+  const params = "?&limit=36";
 
   const url = endpoint + params;
 
